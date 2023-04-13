@@ -2,7 +2,7 @@
 
 class Database {
 
-    private $hoostname = "localhost"; //127.0.0.1 en lugar de local host 
+    private $hoostname = "127.0.0.1"; //127.0.0.1 en lugar de local host 
     private $database = "Sport_Shop"; //Nueva actualizacion en entorno de bd
     private $username = "root";
     private $password = "";

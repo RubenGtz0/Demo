@@ -1,10 +1,13 @@
 <?php
-
+require 'config/config.php';
 require 'config/Database.php';
 $db = new Database(); //base de datos
 $con = $db->conectar(); // la conexion
 
-$sql = $con->prepare("SELECT Id, Nombre, Precio FROM Productos WHERE Activo=1"); //Traer solicitudes preparadas
+
+
+
+$sql = $con->prepare("SELECT id, Nombre, Precio FROM Productos WHERE Activo=1"); //Traer solicitudes preparadas
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -67,31 +70,32 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
           <div class="card shadow-sm">
             <?php
 
-            $id = $row['Id'];
-            $imagen = "images/productos/" . $id . "/Principal.jpg";
+            $id = $row['id'];
+            $imagen = "images/productos/" . $id . "/principal.jpg";
 
-            if(!file_exists($imagen)){
-              $imagen = "images/no-photo.jpg";
+            if (!file_exists($imagen)) {
+                $imagen = "images/no-photo.jpg";
             }
             ?>
-
-            <img src="<?php echo $imagen;  ?>">
+            <img src="<?php echo $imagen; ?>">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $row['Nombre'];  ?></h5>
-                <p class="card-text"><?php echo number_format($row['Precio'], 2, '.', ','); ?></p>
+                <p class="card-text">$ <?php echo number_format($row['Precio'], 2, '.', ','); ?></p>
                 <div class="d-flex justify-content-between aling-items-center">
                     <div class="btn-group">
-                        <a href="" class="btn btn-primary">Detalles</a>
-                    </div>
-                    <a href="" class="btn btn-success">Agregar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
-    </div>
-</div>
-</main>
+                        <a href="details.php?id=<?php echo $row['id']; ?>&token=<?php echo
+                        hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>" class="btn
+                        btn-primary">Detalles</a>
+                      </div>
+                      <a href="#" class="btn btn-success">Agregar</a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              <?php } ?>
+          </div>
+      </div>
+  </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
