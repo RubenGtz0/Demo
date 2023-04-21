@@ -37,15 +37,23 @@ if ($id == '' || $token == ''){
       }
       
       $imagenes = array();
+      if(file_exists($dir_images)){
       $dir = dir($dir_images);
 
       while (($archivo = $dir->read()) != false) {
           if ($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))) {
               $imagenes[] = $dir_images . $archivo;
           }
-      
+        }
+
+      $dir->close();
       }
+
+    } else {
+      echo 'Error al procesar la petición';
+      exit;
     }
+  
 
   } else {
       echo 'Error al procesar la petición';
@@ -101,8 +109,9 @@ if ($id == '' || $token == ''){
 
       </ul>
 
-      <a href="carrito.php"class="btn btn-primary">Carrito</a >
-        
+      <a href="carrito.php"class="btn btn-primary">
+        Carrito<span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
+      </a >
       </div>
 
     </div>
@@ -166,7 +175,8 @@ if ($id == '' || $token == ''){
 
               <div class="d-grid gap-3 col-10 mx-auto">
                 <button class="btn btn-primary" type="button">Comprar ahora</button>
-                <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+                <button class="btn btn-outline-primary" type="button" onclick="addProducto(<?php echo $id; ?>,
+                 '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
 
               </div>
 
@@ -177,6 +187,32 @@ if ($id == '' || $token == ''){
     </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" 
+        crossorigin="anonymous">
+</script>
+
+<script>
+function addProducto(id, token){//Se envia mediante ajax para poder actualizarlo de manera mas rapida 
+      let url='clases/carrito.php'
+      let formData=new FormData() //envia los parametros metodo post
+      formData.append('Id',id)
+      formData.append('token',token)
+
+      fetch(url,{
+        method:'POST',
+        body: formData,
+        mode:'cors'
+      }).then(response=>response.json())
+      .then(data=> {
+        if(data.ok){
+          let elemento=document.getElementById("num_cart")
+          elemento.innerHTML=data.numero
+        }
+      })
+}
+</script>
+
+
 </body>
 </html> 

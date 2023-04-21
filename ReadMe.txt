@@ -15,3 +15,5 @@ solo instalar plugins de php los de mysql no son necesarios
 en la parte de la creacion de base de datos para no utilizar cada quien una base separada intenten usar esta direccion en 
 lugar de localhost 
 private $hoostname = "localhost"; //127.0.0.1 en lugar de localhost 
+
+En la descripcion de los productos se puede usar tag html para modificar la vista del texto con efectos de parrafo o negritas etc.
