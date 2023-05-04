@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "ProyectSist",
+			"path": "."
+		},
+		{
+			"name": "clases",
+			"path": "../tienda_online/clases"
+		},
+		{
+			"name": "css",
+			"path": "../tienda_online/css"
+		},
+		{
+			"name": "images",
+			"path": "../tienda_online/images"
+		},
+		{
+			"name": "js",
+			"path": "../tienda_online/js"
+		},
+		{
+			"name": "phpmailer",
+			"path": "../tienda_online/phpmailer"
+		},
+		{
+			"name": "vendor",
+			"path": "../tienda_online/vendor"
+		},
+		{
+			"name": "webfonts",
+			"path": "../tienda_online/webfonts"
+		}
+	],
+	"settings": {}
+}
