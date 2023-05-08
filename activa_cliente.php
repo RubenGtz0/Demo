@@ -2,8 +2,6 @@
 
 /**
  * Script para activar registro de cliente
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';

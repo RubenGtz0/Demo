@@ -2,8 +2,6 @@
 
 /**
  * Pantalla para realizar pago
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';

@@ -2,8 +2,6 @@
 
 /**
  * Pantalla para mostrar el listado de productos en el carrito
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';

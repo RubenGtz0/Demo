@@ -2,8 +2,6 @@
 
 /**
  * Script para procesar pago
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';

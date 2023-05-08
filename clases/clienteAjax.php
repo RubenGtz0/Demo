@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Script para validar si existe el usuario
- * Autor: Marco Robles
  * Web: https://github.com/mroblesdev
  */
 

@@ -2,8 +2,6 @@
 
 /**
  * Parametros para configuración
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 //Configuración del sistema

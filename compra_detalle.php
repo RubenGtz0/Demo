@@ -2,8 +2,6 @@
 
 /**
  * Pantalla para detalles de compra
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';

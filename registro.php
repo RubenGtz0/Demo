@@ -2,8 +2,6 @@
 
 /**
  * Pantalla para registro de cliente
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
  */
 
 require 'config/config.php';
@@ -125,8 +123,12 @@ if (!empty($_POST)) {
                     <input type="tel" name="telefono" id="telefono" class="form-control" requireda>
                 </div>
 
+                /**
+                *
+                *hay que eliminar este apartado en el registro pero hay que verificar que no afecte con los demas datos
+                */
                 <div class="col-md-6">
-                    <label for="dni"><span class="text-danger">*</span> DNI</label>
+                    <label for="dni"><span class="text-danger">*</span> Credencial</label>
                     <input type="text" name="dni" id="dni" class="form-control" requireda>
                 </div>
                 <div class="col-md-6">

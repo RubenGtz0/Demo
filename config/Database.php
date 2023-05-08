@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Clase para conexión a base de datos
- * Autor: Marco Robles
- * Web: https://github.com/mroblesdev
- */
-
 class Database
 {
     private $hostname = "127.0.0.1";
