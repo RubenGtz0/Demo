@@ -1,5 +1,5 @@
 body{
-  background-color: #f8f9fa;
+  background-color: #e5e5e7;
 }
 
 main > .container {
@@ -13,4 +13,10 @@ main > .container {
 footer {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.jumbotron{
+  background-color: #8c8cb1;
+  color: #fff;
+  padding: 20px 0;
 }
