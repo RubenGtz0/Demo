@@ -19,12 +19,11 @@ if (!empty($_POST)) {
     $apellidos = trim($_POST['apellidos']);
     $email = trim($_POST['email']);
     $telefono = trim($_POST['telefono']);
-    $dni = trim($_POST['dni']);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
     $repassword = trim($_POST['repassword']);
 
-    if (esNulo([$nombres, $apellidos, $email, $telefono, $dni, $usuario, $password, $repassword])) {
+    if (esNulo([$nombres, $apellidos, $email, $telefono, $usuario, $password, $repassword])) {
         $errors[] = "Debe llenar todos los campos";
     }
 
@@ -46,7 +45,7 @@ if (!empty($_POST)) {
 
     if (count($errors) == 0) {
 
-        $id = registraCliente([$nombres, $apellidos, $email, $telefono, $dni], $con);
+        $id = registraCliente([$nombres, $apellidos, $email, $telefono], $con);
 
         if ($id > 0) {
 
@@ -123,14 +122,6 @@ if (!empty($_POST)) {
                     <input type="tel" name="telefono" id="telefono" class="form-control" requireda>
                 </div>
 
-                /**
-                *
-                *hay que eliminar este apartado en el registro pero hay que verificar que no afecte con los demas datos
-                */
-                <div class="col-md-6">
-                    <label for="dni"><span class="text-danger">*</span> Credencial</label>
-                    <input type="text" name="dni" id="dni" class="form-control" requireda>
-                </div>
                 <div class="col-md-6">
                     <label for="usuario"><span class="text-danger">*</span> Usuario</label>
                     <input type="text" name="usuario" id="usuario" class="form-control" requireda>
