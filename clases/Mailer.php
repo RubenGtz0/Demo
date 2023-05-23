@@ -23,15 +23,15 @@ class Mailer
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_OFF;              //Enable verbose debug output
             $mail->isSMTP();
-            $mail->Host       = MAIL_HOST;                   //Configure el servidor SMTP para enviar
+            $mail->Host       = 'smtp.gmail.com';                   //Configure el servidor SMTP para enviar
             $mail->SMTPAuth   = true;                        // Habilita la autenticación SMTP
-            $mail->Username   = MAIL_USER;                   //Usuario SMTP
-            $mail->Password   = MAIL_PASS;                   //Contraseña SMTP                             
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Habilitar el cifrado TLS
-            $mail->Port       = MAIL_PORT;                   //Puerto TCP al que conectarse, si usa 587 agregar `SMTPSecure = PHPMailer :: ENCRYPTION_STARTTLS`
+            $mail->Username   = 'sportshoponlineis@gmail.com';                   //Usuario SMTP
+            $mail->Password   = 'otnoktzgswjnwnww';                   //Contraseña SMTP                             
+            $mail->SMTPSecure = "ssl"; //Habilitar el cifrado TLS
+            $mail->Port       = 465;                   //Puerto TCP al que conectarse, si usa 587 agregar `SMTPSecure = PHPMailer :: ENCRYPTION_STARTTLS`
 
             //Correo emisor y nombre
-            $mail->setFrom(MAIL_USER, 'Tienda CDP');
+            $mail->setFrom('sportshoponlineis@gmail.com', 'SPORTSHOP ONLINE');
             //Correo receptor y nombre
             $mail->addAddress($email);
 
@@ -51,7 +51,7 @@ class Mailer
                 return false;
             }
         } catch (Exception $e) {
-            echo "No se pudo enviar el mensaje. Error de envío: {$mail->ErrorInfo}";
+            echo "No se pudo enviar el correo. Error de envío: {$mail->ErrorInfo}";
             return false;
         }
     }

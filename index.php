@@ -15,15 +15,22 @@ $comando->execute();
 $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport Shop Online</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Tienda en linea</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/all.min.css" rel="stylesheet">
     <link href="css/estilos.css" rel="stylesheet">
-    <style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <?php include 'menu.php'; ?>    <style>
     body {
         background-image: url('images/sp1.jpg');
         background-size: cover;
@@ -34,10 +41,8 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
         padding: 0;
     }
 </style>
-<body>
-<?php include 'menu.php'; ?>
-         
-<div class="p-3 mb-2 bg-gradient-primary text-white d-flex flex-column justify-content-center align-items-center" style="height: 90vh;">
+
+<div main class="p-3 mb-2 bg-gradient-primary text-white d-flex flex-column justify-content-center align-items-center" style="height: 90vh;">
     <div class="d-flex flex-column align-items-center">
         <h1 class="text-center">Sport Shop Online</h1>
         <br>
