@@ -5,11 +5,9 @@ use Exception;
 
 /**
  * Config Class Doc Comment
- *
  * @package MercadoPago
  */
-class Config
-    extends Config\AbstractConfig
+class Config extends Config\AbstractConfig
 {
     /**
      * Available parsers
@@ -108,42 +106,41 @@ class Config
     {
         parent::set($key, $value);
 
-        if ($key == "ACCESS_TOKEN") { 
+        if ($key == "ACCESS_TOKEN") {
             $user = $this->getUserId($value);
             parent::set('USER_ID', $user['id']);
-            parent::set('COUNTRY_ID', $user['COUNTRY_ID']);
+            parent::set('COUNTRY_ID', $user['country_id']); // Corregir clave 'COUNTRY_ID'
         }
-        
+
         if (parent::get('CLIENT_ID') != "" && parent::get('CLIENT_SECRET') != "" && empty(parent::get('ACCESS_TOKEN'))) {
-            
             $response = $this->getToken();
 
             if (isset($response['access_token'])) {
                 parent::set('ACCESS_TOKEN', $response['access_token']);
-            
 
                 $user = $this->getUserId($response['access_token']);
 
                 if (isset($user['id'])) {
                     parent::set('USER_ID', $user['id']);
                 }
-
             }
-            
         }
     }
 
-
-    /** 
+    /**
+     * @param string $accessToken
      * @return mixed
      */
-    public function getUserId()
+    public function getUserId($accessToken) // Agregar parámetro $accessToken
     {
         if (!$this->_restclient) {
             $this->_restclient = new RestClient();
             $this->_restclient->setHttpParam('address', $this->get('base_url'));
         }
-        $response = $this->_restclient->get("/users/me");
+        $headers = [
+            'Authorization' => 'Bearer ' . $accessToken, // Incluir token de acceso en la solicitud
+        ];
+        $response = $this->_restclient->get("/users/me", [], $headers); // Agregar headers con token de acceso
 
         return $response["body"];
     }
@@ -157,9 +154,11 @@ class Config
         if (!$this->_restclient) {
             $this->_restclient = new RestClient();
         }
-        $data = ['grant_type'    => 'client_credentials',
+        $data = [
+            'grant_type'    => 'client_credentials',
             'client_id'     => $this->get('CLIENT_ID'),
-            'client_secret' => $this->get('CLIENT_SECRET')];
+            'client_secret' => $this->get('CLIENT_SECRET'),
+        ];
         $this->_restclient->setHttpParam('address', $this->get('base_url'));
         $response = $this->_restclient->post("/oauth/token", ['json_data' => json_encode($data)]);
         return $response['body'];
@@ -175,9 +174,11 @@ class Config
         if (!$this->_restclient) {
             $this->_restclient = new RestClient();
         }
-        $data = ['grant_type'    => 'refresh_token',
-                'refresh_token'     => $this->get('REFRESH_TOKEN'),
-                'client_secret' => $this->get('ACCESS_TOKEN')];
+        $data = [
+            'grant_type'    => 'refresh_token',
+            'refresh_token' => $this->get('REFRESH_TOKEN'),
+            'client_secret' => $this->get('ACCESS_TOKEN'),
+        ];
         $this->_restclient->setHttpParam('address', $this->get('base_url'));
         $response = $this->_restclient->post("/oauth/token", ['json_data' => json_encode($data)]);
         if (isset($response['access_token']) && isset($response['refresh_token']) && isset($response['client_id']) && isset($response['client_secret'])) {
@@ -187,7 +188,8 @@ class Config
         return $response['body'];
     }
 
-    public function getData(){
+    public function getData()
+    {
         return $this->data;
     }
 }

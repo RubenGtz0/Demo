@@ -15,19 +15,24 @@ $comando->execute();
 $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es" class="h-100">
+
 <head>
-  <title>Contacto - Proyecto de Sistema de Ventas</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPORTS SHOP ONLINE </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="css/all.min.css" rel="stylesheet">
     <link href="css/estilos.css" rel="stylesheet">
+</head>
 
+<body class="d-flex flex-column h-100">
   <style>
     /* Estilos adicionales para el apartado de contacto */
     body {
-      padding: 40px;
+      padding: 0px;
     }
     .contact-info {
       max-width: 800px;
@@ -106,8 +111,9 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include 'menu.php'; ?>
 
-  <div class="container">
-    <div class="row justify-content-center">
+<main class="flex-shrink-0">
+        <div class="container">
+          <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="contact-info">
           <h2>Conocenos</h2>
@@ -119,7 +125,7 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
           <div class="team-members">
             <div class="team-member">
               <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
+                <img src="images/contacto/rg.jpeg" alt="Integrante 1">
                 <div class="card-body">
                   <h4 class="card-title">Rubén Gutiérrez</h4>
                   <p class="card-text">Desarrollador Web</p>
@@ -134,13 +140,13 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             <!-- Repite el código de la tarjeta para los demás integrantes -->
             <div class="team-member">
               <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
+                <img src="images/contacto/haz.jpeg" alt="Integrante 1">
                 <div class="card-body">
-                  <h4 class="card-title">Rubén Gutiérrez</h4>
+                  <h4 class="card-title">Hazel González</h4>
                   <p class="card-text">Desarrollador Web</p>
                   <ul class="social-media-icons">
-                    <li><a href="mailto:gutierrezruben.000@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href="https://www.instagram.com/ruben_gt0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="mailto:byhazi9@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="https://www.instagram.com/hazelg9/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                   </ul>
                   </ul>
                 </div>
@@ -149,13 +155,27 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             <!-- Repite el código de la tarjeta para los demás integrantes -->
             <div class="team-member">
               <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
+                <img src="images/contacto/alex.jpeg" alt="Integrante 1">
                 <div class="card-body">
-                  <h4 class="card-title">Rubén Gutiérrez</h4>
+                  <h4 class="card-title">Alejandro Ríos</h4>
                   <p class="card-text">Desarrollador Web</p>
                   <ul class="social-media-icons">
                     <li><a href="mailto:gutierrezruben.000@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href="https://www.instagram.com/ruben_gt0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                   </ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Repite el código de la tarjeta para los demás integrantes -->
+            <div class="team-member">
+              <div class="card">
+                <img src="images/contacto/fra.jpeg" alt="Integrante 1">
+                <div class="card-body">
+                  <h4 class="card-title">Francisco Hernández</h4>
+                  <p class="card-text">Desarrollador Web</p>
+                  <ul class="social-media-icons">
+                    <li><a href="mailto:frankhdezz1503@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="https://www.instagram.com/jvy3rh3rd3z/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                   </ul>
                   </ul>
                 </div>
@@ -164,28 +184,12 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             <!-- Repite el código de la tarjeta para los demás integrantes -->
             <div class="team-member">
               <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
+                <img src="images/contacto/mel.jpeg" alt="Integran">
                 <div class="card-body">
-                  <h4 class="card-title">Rubén Gutiérrez</h4>
-                  <p class="card-text">Desarrollador Web</p>
+                  <h4 class="card-title">Melissa Rios</h4>
+                  <p class="card-text">Gestion de soporte</p>
                   <ul class="social-media-icons">
-                    <li><a href="mailto:gutierrezruben.000@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href="https://www.instagram.com/ruben_gt0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                  </ul>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- Repite el código de la tarjeta para los demás integrantes -->
-            <div class="team-member">
-              <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
-                <div class="card-body">
-                  <h4 class="card-title">Rubén Gutiérrez</h4>
-                  <p class="card-text">Desarrollador Web</p>
-                  <ul class="social-media-icons">
-                    <li><a href="mailto:gutierrezruben.000@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href="https://www.instagram.com/ruben_gt0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="mailto:riosmelisa32@gmail.com"><i class="fa fa-envelope"></i></a></li>
                   </ul>
                   </ul>
                 </div>
@@ -193,12 +197,12 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="team-member">
               <div class="card">
-                <img src="images/WhatsApp Image 2023-05-21 at 10.18.29 AM.jpeg" alt="Integrante 1">
+                <img src="images/contacto/logoSSO.jpeg" alt="Integ">
                 <div class="card-body">
-                  <h4 class="card-title">Rubén Gutiérrez</h4>
-                  <p class="card-text">Desarrollador Web</p>
+                  <h4 class="card-title">CONTACTO</h4>
+                  <p class="card-text">ASESORÍAS</p>
                   <ul class="social-media-icons">
-                    <li><a href="mailto:gutierrezruben.000@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="mailto:sportshoponlineis@gmail.com"><i class="fa fa-envelope"></i></a></li>
                     <li><a href="https://www.instagram.com/ruben_gt0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                   </ul>
                   </ul>
@@ -213,4 +217,6 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
   
 <?php include 'footer.php';?>
 </body>
-</html>
+</main>
+</html>  
+
